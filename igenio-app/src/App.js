@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import IdeaButton from './components/IdeaButton.js';
+import Footer from '.components/Footer.jsx';
+import SingleTweet from './components/SingleTweet';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +16,9 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <SingleTweet />
+        <IdeaButton />
+        <Footer />
       </div>
     );
   }
