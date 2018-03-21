@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Twit from 'twit';
 // import Config from '../config';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class SingleTweet extends Component {
