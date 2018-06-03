@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      tweet: '',
+      tweet: 'Tweet goes here',
       screen_name: '',
     };
   }
@@ -19,7 +19,7 @@ class App extends Component {
     console.log("App will mount");
   }
 
-  componentDidMount() {
+  click() {
     axios.get('http://localhost:3000/api/twitter')
       .then((res) => {
         const tweetArr = res.data.data.statuses;
@@ -28,10 +28,16 @@ class App extends Component {
         this.setState({
           tweet: item.text,
           screen_name: item.user.screen_name,
+          profile_pic: item.user.profile_image_url,
         });
-      // console.log(JSON.stringify(res.data.data.statuses[0].text))
-      });
+        console.log('The Axios call has been made')
+      //console.log(JSON.stringify(res.data.data.statuses[0].text))
+      })
+      .catch(error => {
+    console.log(error.response)
+});
   }
+
 
 
   render() {
@@ -39,20 +45,18 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Igenio</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
          <section>
             <blockquote>
               {this.state.tweet}
-
-                <p> - {this.state.screen_name}</p>
+              <img src={this.state.profile_pic} alt="User's profile" />
+                <p> - {this.state.screen_name}
+                </p>
 
             </blockquote>
           </section>
-        <button>Random Idea</button>
+        <button onClick={this.click.bind(this)}>Random Idea</button>
         <Footer />
       </div>
     );

@@ -20,7 +20,7 @@ class SingleTweet extends Component {
         const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
         console.log(item);
         this.setState({
-          tweet: item.text,
+          tweet: item.full_text,
           screen_name: item.user.screen_name,
         });
       // console.log(JSON.stringify(res.data.data.statuses[0].text))
@@ -37,7 +37,7 @@ class SingleTweet extends Component {
 
         <blockquote>
           {this.state.tweet}
-
+        <p>test</p>
         <p> - {this.state.screen_name}</p>
 
         </blockquote>

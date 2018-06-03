@@ -1,9 +1,9 @@
 // set up dotenv to hide keys in .env folder
-require('dotenv')config();
+require('dotenv').config();
 //import required modules the server will need to run.
 const express = require('express');
 const Twit = require('twit');
-const bodyParser = require('bodyParser');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const logger = require('morgan');
 const path = require('path');
@@ -29,14 +29,14 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Below the Twit module is used to pull tweets from the Twitter API.
-app.get('/api/twitter', (req, res) => {
+ app.get('/api/twitter', (req, res) => {
   const T = new Twit({
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     app_only_auth: true,
   });
 
-  const params = { q: '"somebody should" OR "someone should" AND "make a" OR "build a" -"trump" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" since:2018-03-01 exclude:replies exclude:retweets', count: 50 };
+  const params = { q: '"somebody should" OR "someone should" AND "make a" -"trump" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" exclude:replies exclude:retweets', count: 25 };
 
   const tweetData = (err, data, response) => {
     res.json({
@@ -48,9 +48,9 @@ app.get('/api/twitter', (req, res) => {
 });
 
 // Instead of page found, send down the react app to handle any pages.
-app.get('*', (req, res) => {
+ app.get('*', (req, res) => {
   // Send index.html file which is the entire react app.
-  res.sendFile(`${__dirname}/igenio-app/public/index.html`);
+  res.sendFile(`${__dirname}/client/public/index.html`);
 });
 
 // Listening on PORT
