@@ -1,4 +1,4 @@
-.App {
+.container {
   text-align: center;
 }
 
@@ -20,6 +20,11 @@
 
 .App-intro {
   font-size: large;
+}
+
+article {
+
+  margin: 0 auto;
 }
 
 @keyframes App-logo-spin {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bulma/css/bulma.css'
 import logo from './logo.svg';
 // import IdeaButton from './components/IdeaButton.js';
 import Footer from './components/Footer.jsx';
@@ -43,44 +44,43 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="container is-clearfix">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Igenio</h1>
         </header>
-        <article class="media">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
+
+        <article className="media">
+  <figure className="media-left">
+    <p className="image is-96x96">
+      <img src={this.state.profile_pic} alt="User Profile pic" />
     </p>
   </figure>
-  <div class="media-content">
-    <div class="content">
+  <div className="media-content">
+    <div className="content">
       <p>
         <strong>{this.state.twitter_name}</strong> <small>{this.state.screen_name}</small> <small>31m</small>
-        <br>
+        <br/>
         {this.state.tweet}
       </p>
     </div>
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-reply"></i></span>
+    <nav className="level is-mobile">
+      <div className="level-left">
+        <a className="level-item">
+          <span className="icon is-small"><i className="fas fa-reply"></i></span>
         </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+        <a className="level-item">
+          <span className="icon is-small"><i className="fas fa-retweet"></i></span>
         </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-heart"></i></span>
+        <a className="level-item">
+          <span className="icon is-small"><i className="fas fa-heart"></i></span>
         </a>
       </div>
     </nav>
   </div>
-  <div class="media-right">
-    <button class="delete"></button>
-  </div>
+
 </article>
-         <section>
+         {/*} <section>
             <blockquote>
               {this.state.tweet}
               <img src={this.state.profile_pic} alt="User's profile" />
@@ -88,7 +88,7 @@ class App extends Component {
                 </p>
 
             </blockquote>
-          </section>
+          </section> */}
         <button onClick={this.click.bind(this)}>Random Idea</button>
         <Footer />
       </div>
