@@ -28,6 +28,7 @@ class App extends Component {
         this.setState({
           tweet: item.text,
           screen_name: item.user.screen_name,
+          twitter_name: item.user.name,
           profile_pic: item.user.profile_image_url,
         });
         console.log('The Axios call has been made')
@@ -47,6 +48,38 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Igenio</h1>
         </header>
+        <article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img src="https://bulma.io/images/placeholders/128x128.png">
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong>{this.state.twitter_name}</strong> <small>{this.state.screen_name}</small> <small>31m</small>
+        <br>
+        {this.state.tweet}
+      </p>
+    </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-reply"></i></span>
+        </a>
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+        </a>
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-heart"></i></span>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <div class="media-right">
+    <button class="delete"></button>
+  </div>
+</article>
          <section>
             <blockquote>
               {this.state.tweet}
