@@ -1,5 +1,6 @@
 .container {
   text-align: center;
+
 }
 
 .App-logo {
@@ -8,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #7B8EBB;
   height: 150px;
   padding: 20px;
   color: white;
@@ -23,8 +24,8 @@
 }
 
 article {
-
   margin: 0 auto;
+  padding: 5px 0 5px;
 }
 
 @keyframes App-logo-spin {

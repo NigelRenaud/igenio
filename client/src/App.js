@@ -11,8 +11,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      tweet: 'Tweet goes here',
+      tweet: '',
       screen_name: '',
+      profile_pic: '',
     };
   }
 
@@ -38,6 +39,7 @@ class App extends Component {
       .catch(error => {
     console.log(error.response)
 });
+
   }
 
 
@@ -89,7 +91,7 @@ class App extends Component {
 
             </blockquote>
           </section> */}
-        <button onClick={this.click.bind(this)}>Random Idea</button>
+        <button className="button is-primary is-rounded" onClick={this.click.bind(this)}>Random Idea</button>
         <Footer />
       </div>
     );
