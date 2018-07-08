@@ -23,6 +23,10 @@
   font-size: large;
 }
 
+.box  {
+  background-color: #edf8d8;
+}
+
 article {
   margin: 0 auto;
   padding: 5px 0 5px;

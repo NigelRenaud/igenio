@@ -21,6 +21,13 @@ class App extends Component {
     console.log("App will mount");
   }
 
+// Attempting to have the media box bounce into frame each time the component is reloaded. Not working as of 7/6/18.
+  componentDidMount() {
+    let tweetMedia = document.getElementById('tweet-box');
+      tweetMedia.classList.add('animated', 'bounceInUp');
+  }
+
+// Below click function makes the call to Twitter and randomly selects one status from the data.
   click() {
     axios.get('http://localhost:3000/api/twitter')
       .then((res) => {
@@ -43,7 +50,7 @@ class App extends Component {
   }
 
 
-
+// Below is from Bulma
   render() {
     return (
       <div className="container is-clearfix">
@@ -51,8 +58,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Igenio</h1>
         </header>
+        <div>
+          <section className="box">
+            <h1 className="title">The Idea Generator</h1>
+      <h2 className="subtitle">
+        This is a simple project created using <strong>Twitter API, Node, Express, React JS and Twit</strong>. When the button below is clicked a function is called that tells <strong>Axios</strong> to fetch a group of tweets that meet a defined criteria. From there a random tweet is selected and displayed in the section below.
+      </h2>
 
-        <article className="media">
+          </section>
+        </div>
+        <article className="media" id="tweet-box">
   <figure className="media-left">
     <p className="image is-96x96">
       <img src={this.state.profile_pic} alt="User Profile pic" />
