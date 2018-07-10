@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css'
-import logo from './logo.svg';
+import logo from './genie_lamp.png';
 // import IdeaButton from './components/IdeaButton.js';
 import Footer from './components/Footer.jsx';
 // import SingleTweet from './components/SingleTweet';
@@ -62,7 +62,7 @@ class App extends Component {
           <section className="box">
             <h1 className="title">The Idea Generator</h1>
       <h2 className="subtitle">
-        This is a simple project created using <strong>Twitter API, Node, Express, React JS and Twit</strong>. When the button below is clicked a function is called that tells <strong>Axios</strong> to fetch a group of tweets that meet a defined criteria. From there a random tweet is selected and displayed in the section below.
+        This is a simple project created using <strong>Node, Express, React JS, Twit and Twitter API </strong>. When the button below is clicked a function is called that tells <strong>Axios</strong> to fetch a group of tweets that meet a defined criteria. From there a random tweet is selected and displayed in the section below.
       </h2>
 
           </section>
@@ -76,7 +76,7 @@ class App extends Component {
   <div className="media-content">
     <div className="content">
       <p>
-        <strong>{this.state.twitter_name}</strong> <small>{this.state.screen_name}</small> <small>31m</small>
+        <strong>{this.state.twitter_name}</strong> @<small>{this.state.screen_name}</small> <small>31m</small>
         <br/>
         {this.state.tweet}
       </p>
