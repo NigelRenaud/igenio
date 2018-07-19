@@ -1,7 +1,7 @@
 {
   "name": "igenio-app",
   "version": "0.1.0",
-  "main": "index.js",
+  "main": "server.js",
   "private": true,
   "engines": {
     "node": "10.6.0",
@@ -26,7 +26,7 @@
     "concurrently": "^3.6.0"
   },
   "scripts": {
-    "start": "node server",
+    "start": "node server.js",
     "heroku-postbuild": "npm install && cd client && npm install --only=dev && npm install && npm run build"
   }
 }

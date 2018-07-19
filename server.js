@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // setting up static files
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Below the Twit module is used to pull tweets from the Twitter API.
  app.get('/api/twitter', (req, res) => {
