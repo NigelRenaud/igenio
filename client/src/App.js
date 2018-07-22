@@ -44,7 +44,7 @@ class App extends Component {
       //console.log(JSON.stringify(res.data.data.statuses[0].text))
       })
       .catch(error => {
-    console.log(error.response)
+    console.log(error)
 });
 
   }
