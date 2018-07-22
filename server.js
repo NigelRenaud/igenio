@@ -21,7 +21,7 @@ app.use(logger('dev'));
 //below sets up the bodyParser to handle json data being received.
 app.use(cors());
 app.use(bodyParser.urlencoded({
-    extended: false,
+    extended: true,
 }));
 app.use(bodyParser.json());
 
