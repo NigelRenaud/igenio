@@ -29,7 +29,7 @@ class App extends Component {
 
 // Below click function makes the call to Twitter and randomly selects one status from the data.
   click() {
-    axios.get('http://localhost:3000/api/twitter')
+    axios.get('api/twitter')
       .then((res) => {
         const tweetArr = res.data.data.statuses;
         const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
