@@ -35,10 +35,10 @@ class App extends Component {
         const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
         console.log(item);
         this.setState({
-          tweet: item.text,
+          tweet: item.full_text,
           screen_name: item.user.screen_name,
           twitter_name: item.user.name,
-          profile_pic: item.user.profile_image_url,
+          profile_pic: item.user.profile_image_url_https,
         });
         console.log('The Axios call has been made')
       //console.log(JSON.stringify(res.data.data.statuses[0].text))

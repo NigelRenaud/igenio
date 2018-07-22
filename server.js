@@ -36,7 +36,13 @@ app.use(express.static(path.join(__dirname, 'client/build')));
     app_only_auth: true,
   });
 
-  const params = { q: '"somebody should" OR "someone should" AND "make a" -"trump" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" exclude:replies exclude:retweets', count: 10 };
+  const params = {
+    q: '"somebody should" OR "someone should" AND "make a" -"trump" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" exclude:replies exclude:retweets',
+    lang: 'en',
+    count: 20,
+    tweet_mode : 'extended',
+    result_type: 'recent'
+     };
 
   const tweetData = (err, data, response) => {
     res.json({
