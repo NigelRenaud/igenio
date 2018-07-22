@@ -8,5 +8,5 @@ By Darren Nesbitt 2018
 - Bulma for quick styling 
 - Animate.css for fun 
 [igenio](https://igenio-app.herokuapp.com)
-![igenioScreenshot](./igenio_screenshot.jpg)
+![igenioScreenshot](./igenio_screenshot.png)
 
