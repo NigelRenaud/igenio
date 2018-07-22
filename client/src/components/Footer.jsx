@@ -7,10 +7,9 @@ class Footer extends Component {
   <div className="container">
     <div className="content has-text-centered">
       <p>
-        <strong>More Projects on </strong><a href="http://www.github.com/NigelRenaud">GitHub</a>.
-      </p>
-        <p>
-          <strong>Twitter API React App</strong> by <a href="http://www.knownesbitt.com">Darren Nesbitt 2018</a>.
+          <strong>Express + React App</strong> by <a href="http://www.knownesbitt.com">Darren Nesbitt 2018</a>.
+          <br/>
+          <strong>See more Projects on </strong><a href="http://www.github.com/NigelRenaud">GitHub</a>.
         </p>
     </div>
   </div>

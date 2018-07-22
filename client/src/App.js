@@ -49,6 +49,10 @@ class App extends Component {
 
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.twitter_name !==this.twitter_name;
+  }
+
 
 // Below is from Bulma
   render() {
@@ -61,9 +65,9 @@ class App extends Component {
         <div>
           <section className="box">
             <h1 className="title">The Idea Generator</h1>
-      <h2 className="subtitle">
+      <h6 className="subtitle is-6">
         This is a simple project created using <strong>Node, Express, React JS, Twit and Twitter API </strong>. When the button below is clicked a function is called that tells <strong>Axios</strong> to fetch a group of tweets that meet a defined criteria. From there a random tweet is selected and displayed in the section below.
-      </h2>
+      </h6>
 
           </section>
         </div>
