@@ -6,5 +6,5 @@ What do you do when you can't think of an idea for a project? . . . You just bui
 - React using a single coponent for simplicity 
 - Bulma for quick styling 
 - Animate.css for fun 
-#####Click below to try out the app
+###### Click below to try out the app
 [![igenioScreenshot](./igenio_screenshot.png)](https://igenio-app.herokuapp.com)
