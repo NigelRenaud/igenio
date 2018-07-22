@@ -80,7 +80,7 @@ class App extends Component {
   <div className="media-content">
     <div className="content">
       <p>
-        <strong>{this.state.twitter_name}</strong> @<small>{this.state.screen_name}</small> <small>31m</small>
+        <strong>{this.state.twitter_name}</strong> @<small>{this.state.screen_name}</small>
         <br/>
         {this.state.tweet}
       </p>
