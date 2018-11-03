@@ -11,10 +11,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      quoted_tweet: false,
+      quoted_tweet_pic: false,
       tweet: '',
+      tweet_pic: null,
       screen_name: '',
-      profile_pic: '',
+      profile_pic: null,
     };
+
+    this.click = this.click.bind(this);
   }
 
   componentWillMount() {
@@ -22,31 +27,45 @@ class App extends Component {
   }
 
 // Attempting to have the media box bounce into frame each time the component is reloaded. Not working as of 7/6/18.
-  componentDidMount() {
+  /* componentDidMount() {
     let tweetMedia = document.getElementById('tweet-box');
       tweetMedia.classList.add('animated', 'bounceInUp');
-  }
+  } */
 
+  componentDidUpdate(){
+    let tweetMedia = document.getElementById('tweet-box');
+          tweetMedia.classList.remove('animated', 'bounceInUp');
+    console.log("The tweet updated");
+  }
 // Below click function makes the call to Twitter and randomly selects one status from the data.
   click() {
+      let tweetMedia = document.getElementById('tweet-box');
+          tweetMedia.classList.add('animated', 'bounceInUp');
     axios.get('api/twitter')
       .then((res) => {
         const tweetArr = res.data.data.statuses;
         const item = tweetArr[Math.floor(Math.random() * tweetArr.length)];
         console.log(item);
         this.setState({
+          // quoted_tweet is checking to see if the main tweet is quoting someone else
+          quoted_tweet: (item.is_quote_status) ? item.quoted_status.full_text : false,
+          // below is checking to see if that quoted tweet had an image attached.
+          quoted_tweet_pic: (item.is_quote_status) ? item.quoted_status.media_url : false,
+          // below is full text of the main tweet.
           tweet: item.full_text,
+          // below tweet_pic is checking if there are any pictures attached to the main tweet, if so put them in this prop.
+          tweet_pic: (item.extended_entities) ? item.extended_entities.media[0].media_url : "No image",
           screen_name: item.user.screen_name,
           twitter_name: item.user.name,
           profile_pic: item.user.profile_image_url_https,
+          tweet_url: `https://twitter.com/${item.user.screen_name}/status/${item.id_str}`,
         });
-        console.log('The Axios call has been made')
-      //console.log(JSON.stringify(res.data.data.statuses[0].text))
+        console.log(`Quote? ${this.state.quoted_tweet}`)
+        console.log(`Is there a quote pic? ${this.state.quoted_tweet_pic}`)
       })
       .catch(error => {
-    console.log(error)
+    console.log(error.message)
 });
-
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -80,9 +99,11 @@ class App extends Component {
   <div className="media-content">
     <div className="content">
       <p>
-        <strong>{this.state.twitter_name}</strong> @<small>{this.state.screen_name}</small>
+        <strong><a href={this.state.tweet_url} target="_blank">{this.state.twitter_name}</a>  </strong>
+        @<small>{this.state.screen_name}</small>
         <br/>
         {this.state.tweet}
+        <img src={this.state.tweet_pic} alt="image" />
       </p>
     </div>
     <nav className="level is-mobile">
