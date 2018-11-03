@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
   });
 
   const params = {
-    q: '("somebody should" OR "someone should") AND ("make" OR "build" OR "put " OR "design" OR "create" min_faves:5) -"trump" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" exclude:replies exclude:retweets',
+    q: '("somebody should" OR "someone should") AND ("make a" OR "build a" OR "put a" OR "design a" OR "create a" min_faves:5) -"trump" -"liberals" -"snowflakes" -"blocklist" -"account" -"cash app" exclude:replies exclude:retweets',
     lang: 'en',
     count: 100,
     tweet_mode : 'extended',

@@ -103,7 +103,7 @@ class App extends Component {
         @<small>{this.state.screen_name}</small>
         <br/>
         {this.state.tweet}
-        <img src={this.state.tweet_pic} alt="image" />
+        <img src={this.state.tweet_pic} />
       </p>
     </div>
     <nav className="level is-mobile">
