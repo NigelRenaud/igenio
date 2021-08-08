@@ -54,7 +54,7 @@ class App extends Component {
           // below is full text of the main tweet.
           tweet: item.full_text,
           // below tweet_pic is checking if there are any pictures attached to the main tweet, if so put them in this prop.
-          tweet_pic: (item.extended_entities) ? item.extended_entities.media[0].media_url : "No image",
+          tweet_pic: (item.extended_entities) ? item.extended_entities.media[0].media_url : null,
           screen_name: item.user.screen_name,
           twitter_name: item.user.name,
           profile_pic: item.user.profile_image_url_https,
@@ -93,14 +93,14 @@ class App extends Component {
         <article className="media" id="tweet-box">
   <figure className="media-left">
     <p className="image is-96x96">
-      <img src={this.state.profile_pic} alt="User Profile pic" />
+      <img src={this.state.profile_pic} alt="" />
     </p>
   </figure>
   <div className="media-content">
     <div className="content">
       <p>
         <strong><a href={this.state.tweet_url} target="_blank">{this.state.twitter_name}</a>  </strong>
-        @<small>{this.state.screen_name}</small>
+        <small>{this.state.screen_name}</small>
         <br/>
         {this.state.tweet}
         <img src={this.state.tweet_pic} />
